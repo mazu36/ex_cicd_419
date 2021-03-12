@@ -16,7 +16,8 @@ jobs:
           name: Configure server
           command: |
             export ANSIBLE_HOST_KEY_CHECKING=False
-            ansible-playbook - i project/inventory project/playbook.yml
+            ansible-playbook -i project/inventory project/playbook.yml
+            
 workflows:
   my_workflow:
     jobs:
