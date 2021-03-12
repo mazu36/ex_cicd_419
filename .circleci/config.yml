@@ -18,7 +18,29 @@ jobs:
             #export ANSIBLE_HOST_KEY_CHECKING=False
             ansible-playbook  ./playbook.yml  -i ./inventory.txt
             
+  smoking_test:
+    docker: 
+      - image: alpine:latest
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            apk add --update curl # install the dependencies 
+       - run:
+          name: Testing access the website
+          command: |
+            if curl -s --head "https://googleyyy.com" 
+            then
+              exit 0
+            else
+              exit 1
+            fi
+            
 workflows:
   my_workflow:
     jobs:
       - configure_infrastructure
+      - smoking_test:
+        requires: 
+          configure_infrastructure
