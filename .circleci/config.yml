@@ -27,7 +27,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update curl # install the dependencies 
-       - run:
+      - run:
           name: Testing access the website
           command: |
             if curl -s --head "https://googleyyy.com" 
