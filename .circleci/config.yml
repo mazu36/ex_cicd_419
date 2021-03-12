@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Testing access the website
           command: |
-            if curl -s --head "https://googleyyy.com" 
+            if curl -s --head "https://google.com" 
             then
               exit 0
             else
