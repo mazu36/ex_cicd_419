@@ -33,7 +33,17 @@
     path: ~/working
     state: directory
 
-- name: Copy index test page
+- name: Copy file1
   template:
-    src: "files/hello.txt"
-    dest: "~/working/hello.txt"
+    src: "playbook.yml"
+    dest: "~/playbook.yml"
+
+- name: Copy file2
+  template:
+    src: "inventory"
+    dest: "~/inventory"
+    
+ - name: Copy directory roles
+  template:
+    src: "roles/"
+    dest: "~/roles/"
